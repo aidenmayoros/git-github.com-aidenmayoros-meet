@@ -6,6 +6,8 @@ A serverless, progressive web application (PWA) with React using a
 test-driven development (TDD) technique. The application uses the Google
 Calendar API to fetch upcoming events.
 
+The serverless functions will be the middleware for the app, making the requests for consent and Access Tokens. Once Access Tokens are granted they will also make requests to Googles Calendar API to fetch city events.
+
 ## User Stories
 
 1: **Filter Events By City** <br>
