@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default Event = ({ event }) => {
+const Event = ({ event }) => {
 	const [showDetails, setShowDetails] = useState(false);
 	const toggleDetails = () => {
 		setShowDetails(!showDetails);
@@ -12,7 +12,11 @@ export default Event = ({ event }) => {
 				<h2>{event.summary}</h2>
 				<div className='event-location'>{event.location} </div>
 				<div className='event-dateTime'>{event.created}</div>
-				{showDetails && <div className='event-description'>{event.description}</div>}
+				{showDetails && (
+					<div data-testid='event-description' className='event-description'>
+						{event.description}
+					</div>
+				)}
 				<button className='event-details-btn' onClick={toggleDetails}>
 					{showDetails ? 'Hide Details' : 'Show Details'}
 				</button>
@@ -20,3 +24,5 @@ export default Event = ({ event }) => {
 		</li>
 	);
 };
+
+export default Event;
