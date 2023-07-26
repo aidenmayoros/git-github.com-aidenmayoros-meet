@@ -7,6 +7,7 @@ import NumberOfEvents from './components/NumberOfEvents';
 
 const App = () => {
 	const [eventNumber, setEventNumber] = useState(32);
+	const [events, setEvents] = useState([]);
 
 	const handleEventNumberChange = (value) => {
 		setEventNumber(value);
