@@ -13,7 +13,7 @@ const NumberOfEvents = ({ eventNumber, onEventNumberChange }) => {
 	return (
 		<div id='number-of-events-textbox'>
 			<input
-				type='text'
+				type='number'
 				className='textbox'
 				placeholder='Enter a number'
 				value={eventNumber}
