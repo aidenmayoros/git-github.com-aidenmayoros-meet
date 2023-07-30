@@ -29,7 +29,7 @@ const App = () => {
 
 	useEffect(() => {
 		fetchData();
-	}, [currentCity]);
+	}, [currentCity, eventNumber]);
 
 	return (
 		<div className='App'>

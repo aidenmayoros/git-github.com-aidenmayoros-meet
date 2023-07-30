@@ -2,17 +2,13 @@ import React from 'react';
 
 const NumberOfEvents = ({ eventNumber, onEventNumberChange }) => {
 	const handleInputChanged = (value) => {
-		const numberValue = parseInt(value);
-		if (typeof numberValue == 'number') {
-			onEventNumberChange(numberValue);
-		} else {
-			onEventNumberChange(0);
-		}
+		onEventNumberChange(value);
 	};
 
 	return (
-		<div id='number-of-events-textbox'>
+		<div id='number-of-events-input'>
 			<input
+				data-testid='number-of-events-input'
 				type='number'
 				className='textbox'
 				placeholder='Enter a number'
