@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 const Event = ({ event }) => {
 	const [showDetails, setShowDetails] = useState(false);
@@ -7,7 +7,7 @@ const Event = ({ event }) => {
 		setShowDetails(!showDetails);
 	};
 
-	const eventDate = moment(event.created).format('MM/DD/yyyy h:mm A');
+	const eventDate = dayjs(event.created).format('MM/DD/YYYY h:mm A');
 
 	return (
 		<li>
@@ -21,7 +21,7 @@ const Event = ({ event }) => {
 					</div>
 				)}
 				<button className='event-details-btn' onClick={toggleDetails}>
-					{showDetails ? 'Hide Details' : 'Show Details'}
+					<span>{showDetails ? 'Hide Details' : 'Show Details'}</span>
 				</button>
 			</div>
 		</li>
