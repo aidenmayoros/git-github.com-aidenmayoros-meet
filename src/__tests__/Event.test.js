@@ -2,6 +2,7 @@ import Event from '../components/Event';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
 import { getEvents } from '../api';
+import dayjs from 'dayjs';
 
 // Insert the following to have a GUI of the testing
 // screen.logTestingPlaygroundURL()
@@ -13,9 +14,11 @@ describe('<Event /> Component', () => {
 
 	test('renders events title, start time, and location details', async () => {
 		const allEvents = await getEvents();
+		const eventDate = dayjs(allEvents[0].created).format('MM/DD/YYYY h:mm A');
+
 		expect(screen.getByText(allEvents[0].summary)).toBeInTheDocument();
-		expect(screen.getByText(allEvents[0].created)).toBeInTheDocument();
 		expect(screen.getByText(allEvents[0].location)).toBeInTheDocument();
+		expect(screen.getByText(eventDate)).toBeInTheDocument();
 	});
 
 	test("show / hide the details section when the user clicks on the 'show details' or 'hide details' button", async () => {
