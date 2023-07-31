@@ -24,6 +24,10 @@ p {
 	margin: 5px 0;
 }
 
+#number-of-events-input-label {
+	padding: 0.5em;
+}
+
 input[type='text'],
 input[type='number'] {
 	padding: 8px 6px 8px 10px;

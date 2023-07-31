@@ -7,9 +7,13 @@ const NumberOfEvents = ({ eventNumber, onEventNumberChange }) => {
 
 	return (
 		<div>
+			<label htmlFor='number-of-events-input' id='number-of-events-input-label'>
+				Number of Events:
+			</label>
 			<input
 				data-testid='number-of-events-input'
 				id='number-of-events-input'
+				name='number-of-events-input'
 				type='number'
 				className='textbox'
 				placeholder='Enter a number'
