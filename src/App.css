@@ -1,4 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+html {
+	background-color: #23272f;
+	color: white;
+}
+
 .App {
 	text-align: center;
 	padding: 2% 5%;
@@ -39,6 +44,8 @@ input[type='number'] {
 	align-self: center;
 	height: 38px;
 	margin-bottom: 20px;
+	background-color: rgb(51 58 69);
+	color: rgb(152 161 179);
 }
 
 #number-of-events-input {
@@ -61,7 +68,7 @@ input[type='number'] {
 .suggestions {
 	width: 250px;
 	position: absolute;
-	top: 45px;
+	top: 38px;
 	z-index: 2;
 	align-self: center;
 	margin: 0;
@@ -72,7 +79,7 @@ input[type='number'] {
 .suggestions > li {
 	text-align: left;
 	padding: 8px 6px 8px 10px;
-	background-color: #eee;
+	background-color: #1a1c21;
 	cursor: default;
 }
 
