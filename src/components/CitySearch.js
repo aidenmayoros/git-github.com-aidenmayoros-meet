@@ -29,7 +29,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
 	}, [`${allLocations}`]);
 
 	return (
-		<div id='city-search'>
+		<div data-testid='city-search' id='city-search'>
 			<input
 				type='text'
 				className='city'

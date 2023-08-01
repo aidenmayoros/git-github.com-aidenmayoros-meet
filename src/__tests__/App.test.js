@@ -5,39 +5,37 @@ import App from '../App';
 
 // screen.logTestingPlaygroundURL();
 describe('<App /> component unit tests to make sure the child components render', () => {
-	let AppDOM;
 	beforeEach(() => {
-		AppDOM = render(<App />).container.firstChild;
+		render(<App />);
 	});
 
 	test('render list of events', () => {
-		expect(AppDOM.querySelector('#event-list')).toBeInTheDocument();
+		expect(screen.getByTestId('event-list')).toBeInTheDocument();
 	});
 
 	test('render <NumberofEvents /> component', () => {
-		expect(AppDOM.querySelector('#number-of-events-input')).toBeInTheDocument();
+		expect(screen.getByTestId('number-of-events-input')).toBeInTheDocument();
 	});
 
 	test('render CitySearch', () => {
-		expect(AppDOM.querySelector('#city-search')).toBeInTheDocument();
+		expect(screen.getByTestId('city-search')).toBeInTheDocument();
 	});
 });
 
 describe('<App /> integration tests', () => {
 	test('render a list of events matching the city selected by the user', async () => {
+		render(<App />);
 		const user = userEvent.setup();
-		const AppComponent = render(<App />);
-		const AppDOM = AppComponent.container.firstChild;
 
-		const CitySearchDOM = AppDOM.querySelector('#city-search');
-		const CitySearchInput = within(CitySearchDOM).queryByRole('textbox');
+		const CitySearchElement = screen.getByTestId('city-search');
+		const CitySearchInput = within(CitySearchElement).queryByRole('textbox');
 
 		await user.type(CitySearchInput, 'Berlin');
-		const berlinSuggestionItem = within(CitySearchDOM).queryByText('Berlin, Germany');
+		const berlinSuggestionItem = within(CitySearchElement).queryByText('Berlin, Germany');
 		await user.click(berlinSuggestionItem);
 
-		const EventListDOM = AppDOM.querySelector('#event-list');
-		const allRenderedEventItems = within(EventListDOM).queryAllByRole('listitem');
+		const EventListElement = screen.getByTestId('event-list');
+		const allRenderedEventItems = within(EventListElement).queryAllByRole('listitem');
 
 		const allEvents = await getEvents();
 		const berlinEvents = allEvents.filter((event) => event.location === 'Berlin, Germany');
