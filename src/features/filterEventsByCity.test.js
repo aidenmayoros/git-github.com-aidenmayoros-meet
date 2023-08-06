@@ -90,7 +90,6 @@ defineFeature(feature, (test) => {
 			const allEvents = await getEvents();
 
 			// filtering the list of all events down to events located in Germany
-			// citySearchInput.value should have the value "Berlin, Germany" at this point
 			const berlinEvents = allEvents.filter((event) => event.location === citySearchInput.value);
 			expect(EventListItems).toHaveLength(berlinEvents.length);
 		});
