@@ -39,3 +39,5 @@ class InfoAlert extends Alert {
 		this.bgColor = 'rgb(220, 220, 255)'; // light blue
 	}
 }
+
+export default InfoAlert;
