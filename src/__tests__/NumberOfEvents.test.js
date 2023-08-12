@@ -6,7 +6,7 @@ import NumberOfEvents from '../components/NumberOfEvents';
 // screen.logTestingPlaygroundURL()
 describe('<NumberOfEvents /> component', () => {
 	test('NumberOfEvents component textbox is rendered and has default value of 32', () => {
-		render(<NumberOfEvents eventNumber={32} />);
+		render(<NumberOfEvents eventNumber={32} setErrorAlert={() => {}} />);
 		const numberTextBox = screen.queryByTestId('number-of-events-input');
 		expect(numberTextBox).toBeInTheDocument();
 		expect(numberTextBox).toHaveValue(32);
@@ -18,7 +18,13 @@ describe('<NumberOfEvents /> component', () => {
 		// Function to use as placeholder of state change call back function
 		const handleEventNumberChange = jest.fn();
 
-		render(<NumberOfEvents eventNumber={32} onEventNumberChange={handleEventNumberChange} />);
+		render(
+			<NumberOfEvents
+				eventNumber={32}
+				onEventNumberChange={handleEventNumberChange}
+				setErrorAlert={() => {}}
+			/>
+		);
 		const numberTextBox = screen.queryByTestId('number-of-events-input');
 		await user.type(numberTextBox, '{backspace}{backspace}10');
 		expect(handleEventNumberChange).toHaveBeenCalled();

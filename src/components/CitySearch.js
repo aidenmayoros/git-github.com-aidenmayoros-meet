@@ -19,8 +19,8 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
 		} else {
 			infoText = '';
 		}
-		setInfoAlert(infoText);
 
+		setInfoAlert(infoText);
 		setQuery(value);
 		setSuggestions(filteredLocations);
 	};

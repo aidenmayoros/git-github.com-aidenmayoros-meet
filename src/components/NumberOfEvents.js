@@ -1,8 +1,17 @@
 import React from 'react';
 
-const NumberOfEvents = ({ eventNumber, onEventNumberChange }) => {
+const NumberOfEvents = ({ eventNumber, onEventNumberChange, setErrorAlert }) => {
 	const handleInputChanged = (value) => {
-		onEventNumberChange(value);
+		let infoText;
+		if (value < 0 || isNaN(value) || value.includes('.')) {
+			infoText = 'Number of Events must be a positive number';
+			onEventNumberChange(32);
+		} else {
+			infoText = '';
+			onEventNumberChange(value);
+		}
+
+		setErrorAlert(infoText);
 	};
 
 	return (
