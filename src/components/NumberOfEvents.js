@@ -3,9 +3,9 @@ import React from 'react';
 const NumberOfEvents = ({ eventNumber, onEventNumberChange, setErrorAlert }) => {
 	const handleInputChanged = (value) => {
 		let infoText;
-		if (value <= 0 || isNaN(value) || value.includes('.')) {
-			infoText = 'Number of Events must be a positive number';
+		if (value < 0 || isNaN(value) || value.includes('.')) {
 			onEventNumberChange(32);
+			infoText = 'Number of Events must be a positive number';
 		} else {
 			infoText = '';
 			onEventNumberChange(value);

@@ -99,7 +99,7 @@ input[type='number'] {
 }
 
 .event {
-	padding: 10px 10px 35px;
+	padding: 10px 10px 20px;
 	margin-bottom: 10px;
 	text-align: left;
 	border: 1px solid #ccc;
@@ -123,9 +123,7 @@ input[type='number'] {
 }
 
 .event-details-btn {
-	position: absolute;
-	right: 10px;
-	bottom: 10px;
+	margin-top: 0.5em;
 }
 
 /* Start of button styling */
@@ -182,4 +180,11 @@ button:active {
 	left: 20px;
 	width: 250px;
 	z-index: 1000;
+}
+
+.loading-spinner {
+	display: flex;
+	justify-content: center;
+	height: 50vh;
+	align-items: center;
 }
