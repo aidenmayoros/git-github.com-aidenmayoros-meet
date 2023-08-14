@@ -23,19 +23,16 @@ const App = () => {
 	};
 
 	const fetchData = async () => {
-		try {
-			const allEvents = await getEvents();
-			const filteredEvents =
-				currentCity === 'See all cities'
-					? allEvents
-					: allEvents.filter((event) => event.location === currentCity);
+		setIsLoading(true);
+		const allEvents = await getEvents();
+		const filteredEvents =
+			currentCity === 'See all cities'
+				? allEvents
+				: allEvents.filter((event) => event.location === currentCity);
 
-			setEvents(filteredEvents.slice(0, eventNumber));
-			setAllLocations(extractLocations(allEvents));
-			setIsLoading(false);
-		} catch (error) {
-			console.log(error);
-		}
+		setEvents(filteredEvents.slice(0, eventNumber));
+		setAllLocations(extractLocations(allEvents));
+		setIsLoading(false);
 	};
 
 	useEffect(() => {
