@@ -49,7 +49,6 @@ input[type='number'] {
 }
 
 #number-of-events-input {
-	width: 100px;
 	text-align: center;
 	padding: 0;
 }
@@ -136,9 +135,9 @@ button {
 	box-sizing: border-box;
 	color: #ffffff;
 	display: flex;
+	justify-content: center;
 	font-family: Phantomsans, sans-serif;
 	font-size: 18px;
-	justify-content: center;
 	line-height: 1em;
 	max-width: 100%;
 	min-width: 140px;
@@ -187,4 +186,14 @@ button:active {
 	justify-content: center;
 	height: 50vh;
 	align-items: center;
+}
+
+.number-of-events-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.apply-button {
+	margin-left: auto;
+	margin-right: auto;
 }

@@ -1,10 +1,9 @@
 import React from 'react';
 
-const NumberOfEvents = ({ eventNumber, onEventNumberChange, setErrorAlert }) => {
+const NumberOfEvents = ({ eventNumber, onEventNumberChange, setErrorAlert, onApplyclick }) => {
 	const handleInputChanged = (value) => {
 		let infoText;
-		if (value < 0 || isNaN(value) || value.includes('.')) {
-			onEventNumberChange(32);
+		if (value < 0 || value.includes('.')) {
 			infoText = 'Number of Events must be a positive number';
 		} else {
 			infoText = '';
@@ -15,7 +14,7 @@ const NumberOfEvents = ({ eventNumber, onEventNumberChange, setErrorAlert }) => 
 	};
 
 	return (
-		<div>
+		<div className='number-of-events-container'>
 			<label htmlFor='number-of-events-input' id='number-of-events-input-label'>
 				Number of Events:
 			</label>
@@ -29,6 +28,9 @@ const NumberOfEvents = ({ eventNumber, onEventNumberChange, setErrorAlert }) => 
 				value={eventNumber}
 				onChange={(e) => handleInputChanged(e.target.value)}
 			/>
+			<button className='apply-button' onClick={onApplyclick}>
+				<span>Apply</span>
+			</button>
 		</div>
 	);
 };

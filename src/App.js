@@ -37,7 +37,7 @@ const App = () => {
 
 	useEffect(() => {
 		fetchData();
-	}, [currentCity, eventNumber]);
+	}, [currentCity]);
 
 	return (
 		<div className='App'>
@@ -54,6 +54,7 @@ const App = () => {
 				eventNumber={eventNumber}
 				onEventNumberChange={handleEventNumberChange}
 				setErrorAlert={setErrorAlert}
+				onApplyclick={fetchData}
 			/>
 			{isLoading ? (
 				<div className='loading-spinner'>
