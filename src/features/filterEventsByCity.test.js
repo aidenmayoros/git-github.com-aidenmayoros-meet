@@ -14,14 +14,13 @@ defineFeature(feature, (test) => {
 	}) => {
 		given('user hasn’t searched for any city', () => {});
 
-		when('the user opens the app', () => {
-			render(<App />);
+		when('the user opens the app', async () => {
+			await render(<App />);
 		});
 
 		then('the user should see the list of all upcoming events.', async () => {
-			const EventList = screen.queryByTestId('event-list');
-
 			await waitFor(() => {
+				const EventList = screen.queryByTestId('event-list');
 				const EventListItems = within(EventList).queryAllByRole('listitem');
 				expect(EventListItems.length).toBe(32);
 			});

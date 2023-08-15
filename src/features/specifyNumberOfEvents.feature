@@ -6,7 +6,7 @@ Feature: A user wants to see more or less total events in the list.
 
   Scenario: User can change the number of events
     Given the app is open and shows 32 events
-    When the user removes the number 32 from the input field
+    When the user removes the number 32 from the input field and clicks the apply button
     Then all events should no longer be displayed
     When the user enters 5
     Then five events should be displayed

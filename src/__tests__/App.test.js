@@ -1,16 +1,16 @@
-import { render, within, screen, waitFor } from '@testing-library/react';
+import { render, within, screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { getEvents } from '../api';
 import App from '../App';
 
 // screen.logTestingPlaygroundURL();
 describe('<App /> component unit tests to make sure the child components render', () => {
-	beforeEach(() => {
-		render(<App />);
+	beforeEach(async () => {
+		await render(<App />);
 	});
 
-	test('render list of events', () => {
-		expect(screen.getByTestId('event-list')).toBeInTheDocument();
+	test('render list of events', async () => {
+		await waitFor(() => expect(screen.getByTestId('event-list')).toBeInTheDocument());
 	});
 
 	test('render <NumberofEvents /> component', () => {
@@ -24,7 +24,7 @@ describe('<App /> component unit tests to make sure the child components render'
 
 describe('<App /> integration tests', () => {
 	test('render a list of events matching the city selected by the user', async () => {
-		render(<App />);
+		await render(<App />);
 		const user = userEvent.setup();
 
 		const CitySearchElement = screen.getByTestId('city-search');
@@ -56,12 +56,18 @@ describe('<App /> integration tests', () => {
 		expect(NumberOfEventsInput).toHaveClass('textbox');
 
 		// Make sure all events are rendered as App is opened
-		const allRenderedEvents = screen.queryByTestId('event-list');
-		await waitFor(() => expect(allRenderedEvents).toBeInTheDocument());
+		await waitFor(() => {
+			const allRenderedEvents = screen.queryByTestId('event-list');
+			expect(allRenderedEvents).toBeInTheDocument();
+		});
 
 		// User changes amount of events
 		await user.type(NumberOfEventsInput, '{backspace}{backspace}10');
 		expect(NumberOfEventsInput).toHaveValue(10);
-		expect(within(allRenderedEvents).queryAllByRole('listitem').length).toBe(10);
+		const applyButton = screen.queryByTestId('apply-button');
+		fireEvent.click(applyButton);
+		await waitFor(() =>
+			expect(within(screen.queryByTestId('event-list')).queryAllByRole('listitem').length).toBe(10)
+		);
 	});
 });

@@ -28,7 +28,7 @@ const NumberOfEvents = ({ eventNumber, onEventNumberChange, setErrorAlert, onApp
 				value={eventNumber}
 				onChange={(e) => handleInputChanged(e.target.value)}
 			/>
-			<button className='apply-button' onClick={onApplyclick}>
+			<button data-testid='apply-button' className='apply-button' onClick={onApplyclick}>
 				<span>Apply</span>
 			</button>
 		</div>

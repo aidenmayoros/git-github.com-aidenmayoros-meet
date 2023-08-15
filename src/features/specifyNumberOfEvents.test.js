@@ -41,10 +41,15 @@ defineFeature(feature, (test) => {
 			});
 		});
 
-		when('the user removes the number 32 from the input field', async () => {
-			const numberTextBox = screen.queryByTestId('number-of-events-input');
-			fireEvent.change(numberTextBox, { target: { value: '' } });
-		});
+		when(
+			'the user removes the number 32 from the input field and clicks the apply button',
+			async () => {
+				const numberTextBox = screen.queryByTestId('number-of-events-input');
+				const applyButton = screen.queryByTestId('apply-button');
+				fireEvent.change(numberTextBox, { target: { value: '' } });
+				fireEvent.click(applyButton);
+			}
+		);
 
 		then('all events should no longer be displayed', async () => {
 			const numberTextBox = screen.queryByTestId('number-of-events-input');
@@ -55,7 +60,9 @@ defineFeature(feature, (test) => {
 
 		when('the user enters 5', () => {
 			const numberTextBox = screen.queryByTestId('number-of-events-input');
+			const applyButton = screen.queryByTestId('apply-button');
 			fireEvent.change(numberTextBox, { target: { value: '5' } });
+			fireEvent.click(applyButton);
 		});
 
 		then('five events should be displayed', async () => {
