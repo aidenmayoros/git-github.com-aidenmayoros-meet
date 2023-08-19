@@ -6,6 +6,7 @@ import NumberOfEvents from './components/NumberOfEvents';
 import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
 import { extractLocations, getEvents } from './api';
 import { ThreeCircles } from 'react-loader-spinner';
+import CityEventsChart from './components/CityEventsChart';
 
 import './App.css';
 
@@ -81,6 +82,7 @@ const App = () => {
 				</div>
 			) : (
 				<div>
+					<CityEventsChart allLocations={allLocations} events={events} />
 					<EventList events={events} />
 				</div>
 			)}

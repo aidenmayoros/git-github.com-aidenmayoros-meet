@@ -197,3 +197,7 @@ button:active {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.chart-container {
+	/* Container class for chart */
+}
