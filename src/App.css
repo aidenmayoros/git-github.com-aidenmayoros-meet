@@ -199,5 +199,7 @@ button:active {
 }
 
 .chart-container {
-	/* Container class for chart */
+	background-color: #ffffff;
+	margin-top: 1em;
+	border-radius: 6px;
 }
