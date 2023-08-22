@@ -198,8 +198,16 @@ button:active {
 	margin-right: auto;
 }
 
-.chart-container {
+.charts-container {
 	background-color: #ffffff;
 	margin-top: 1em;
 	border-radius: 6px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+	.charts-container {
+		grid-template-columns: 1fr;
+	}
 }
