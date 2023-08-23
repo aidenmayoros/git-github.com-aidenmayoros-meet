@@ -6,7 +6,14 @@ A serverless, progressive web application (PWA) with React using a
 test-driven development (TDD) technique. The application uses the Google
 Calendar API to fetch upcoming events.
 
-The serverless functions will be the middleware for the app, making the requests for consent and Access Tokens. Once Access Tokens are granted they will also make requests to Googles Calendar API to fetch city events.
+The AWS serverless Lambda functions will be the middleware for the app, making the requests for consent and Access Tokens. Once Access Tokens are granted they will also make requests to Googles Calendar API to fetch events in citys and by events by a city.
+
+## Screenshots
+
+<img src="./preview-images/meet-app-1.png" width="80%" style="display: block; margin: 0 auto; padding: 10px">
+<img src="./preview-images/meet-app-2.png" width="80%" style="display: block; margin: 0 auto; padding: 10px">
+<img src="./preview-images/meet-app-3.png" width="80%" style="display: block; margin: 0 auto; padding: 10px">
+<img src="./preview-images/meet-app-4.png" width="80%" style="display: block; margin: 0 auto; padding: 10px">
 
 ## User Stories
 
